@@ -32,13 +32,32 @@ export const Shift = () => {
   const foodEvents = ["Breakfast", "Lunch", "Snack", "Dinner"]
 
   return (
-    <div style={{backgroundColor: 'white'}}>
+    <div
+      style={{
+        backgroundColor: "white",
+        display: "flex",
+        flexDirection: "column",
+        margin: "3rem",
+        gap: "2rem",
+        textAlign: "center",
+      }}
+    >
       {shiftDates.map((date) => (
-        <div>
+        <div style={{ border: "1px solid black" }} key={date.toDateString()}>
           <div>{date.toDateString()}</div>
-          {foodEvents.map((event) => (
-            <FoodEvent name={event} />
-          ))}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            {foodEvents.map((event) => (
+              <div key={event}>
+                <FoodEvent name={event} />
+              </div>
+            ))}
+          </div>
         </div>
       ))}
     </div>
