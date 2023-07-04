@@ -37,7 +37,7 @@ export const Shift = () => {
         backgroundColor: "white",
         display: "flex",
         flexDirection: "column",
-        margin: "3rem",
+        margin: "0.5rem",
         gap: "2rem",
         textAlign: "center",
       }}
@@ -49,7 +49,7 @@ export const Shift = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              justifyContent: "space-between",
+              justifyContent: "space-around",
             }}
           >
             {foodEvents.map((event) => (
