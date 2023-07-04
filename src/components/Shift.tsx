@@ -32,7 +32,7 @@ export const Shift = () => {
   const foodEvents = ["Breakfast", "Lunch", "Snack", "Dinner"]
 
   return (
-    <>
+    <div style={{backgroundColor: 'white'}}>
       {shiftDates.map((date) => (
         <div>
           <div>{date.toDateString()}</div>
@@ -41,6 +41,6 @@ export const Shift = () => {
           ))}
         </div>
       ))}
-    </>
+    </div>
   )
 }
