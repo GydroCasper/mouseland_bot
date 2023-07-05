@@ -13,7 +13,7 @@ declare global {
 }
 
 export const FoodEvent: React.FC<FoodEventProps> = ({ name }) => {
-  const s = window.Telegram.WebAppUser
+  const s = window.Telegram
   console.log(s)
   const handleAssingMeButtonClick = () => {
     console.log("adsfadsf")
