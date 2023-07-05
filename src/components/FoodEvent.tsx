@@ -31,6 +31,7 @@ export const FoodEvent: React.FC<FoodEventProps> = ({ name }) => {
           Assign me
         </Button>
       </div>
+      <div>{JSON.stringify(s)}</div>
     </div>
   )
 }
