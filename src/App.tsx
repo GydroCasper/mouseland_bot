@@ -1,7 +1,22 @@
 import { Shift } from "./components/Shift"
 
+declare global {
+  interface Window {
+    Telegram: {
+      WebAppUser: any
+    }
+  }
+}
+
 function App() {
-  return <Shift />
+  const s = window.Telegram
+
+  return (
+    <>
+      <div>{s.toString()}</div>
+      <Shift />
+    </>
+  )
 }
 
 export default App

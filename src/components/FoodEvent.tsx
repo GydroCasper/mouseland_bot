@@ -4,17 +4,7 @@ interface FoodEventProps {
   name: string
 }
 
-declare global {
-  interface Window {
-    Telegram: {
-      WebAppUser: any
-    }
-  }
-}
-
 export const FoodEvent: React.FC<FoodEventProps> = ({ name }) => {
-  const s = window.Telegram
-  console.log(s)
   const handleAssingMeButtonClick = () => {
     console.log("adsfadsf")
   }
@@ -31,7 +21,6 @@ export const FoodEvent: React.FC<FoodEventProps> = ({ name }) => {
           Assign me
         </Button>
       </div>
-      <div>{JSON.stringify(s)}</div>
     </div>
   )
 }
