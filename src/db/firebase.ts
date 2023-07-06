@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app"
-import { getDatabase } from 'firebase/database'
+import { getDatabase, set, ref } from 'firebase/database'
+import { User } from "../types/user"
 
 const connect = () => {
     const firebaseConfig = {
@@ -15,4 +16,10 @@ const connect = () => {
     const app = initializeApp(firebaseConfig)
     const database = getDatabase(app)
     return database
+  }
+
+  export const assignUser = async (user: User) => {
+    const database = connect();
+  
+    await set(ref(database, 'schedule/' + user.id), user);
   }
