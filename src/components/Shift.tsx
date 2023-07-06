@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react"
+import { fetchAssignments } from "../db/firebase"
 import { FoodEvent } from "./FoodEvent"
+import { User } from "../types/user"
 
 export const Shift = () => {
+  const [assignemnts, setAssignments] = useState<User[]>([])
   const shiftPeriod = process.env.REACT_APP_SHIFT_PERIOD
   const dates = shiftPeriod?.split("-")
 
@@ -30,6 +34,10 @@ export const Shift = () => {
   }
 
   const foodEvents = ["Breakfast", "Lunch", "Snack", "Dinner"]
+
+  useEffect(() => {
+    fetchAssignments(setAssignments)
+  }, [])
 
   return (
     <div
