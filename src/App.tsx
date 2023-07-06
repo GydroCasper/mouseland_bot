@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <div>{s.toString()}</div>
+      <div>{JSON.stringify(s)}</div>
       <Shift />
     </>
   )
