@@ -1,3 +1,4 @@
+import { Stack } from "@mui/material"
 import { FoodEventAssignments } from "../types/assignment"
 import { FoodEvent } from "./FoodEvent"
 
@@ -12,7 +13,7 @@ export const ShiftDate = ({ date, assignments }: ShiftDateProps) => {
     <>
       <div style={{ border: "1px solid black" }} key={date}>
         <div>{date}</div>
-        <div
+        <Stack
           style={{
             display: "flex",
             flexDirection: "row",
@@ -20,7 +21,7 @@ export const ShiftDate = ({ date, assignments }: ShiftDateProps) => {
           }}
         >
           {foodEvents.map((event) => (
-            <div key={event}>
+            <div key={event} style={{ flex: 1, boxSizing: "border-box" }}>
               <FoodEvent
                 name={event}
                 day={date}
@@ -28,7 +29,7 @@ export const ShiftDate = ({ date, assignments }: ShiftDateProps) => {
               />
             </div>
           ))}
-        </div>
+        </Stack>
       </div>
     </>
   )
