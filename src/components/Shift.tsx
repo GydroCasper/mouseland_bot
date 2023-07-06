@@ -34,6 +34,7 @@ export const Shift = () => {
   }
 
   const foodEvents = ["Breakfast", "Lunch", "Snack", "Dinner"]
+  console.log(assignemnts)
 
   useEffect(() => {
     fetchAssignments(setAssignments)
