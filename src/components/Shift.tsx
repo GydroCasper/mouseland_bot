@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { fetchAssignments } from "../db/firebase"
-import { FoodEvent } from "./FoodEvent"
-import { User } from "../types/user"
+import { ShiftDates } from "./ShiftDates"
+import { Assignments } from "../types/assignment"
 
 export const Shift = () => {
-  const [assignemnts, setAssignments] = useState<User[]>([])
+  const [assignemnts, setAssignments] = useState<Assignments | null>(null)
   const shiftPeriod = process.env.REACT_APP_SHIFT_PERIOD
   const dates = shiftPeriod?.split("-")
 
@@ -33,9 +33,6 @@ export const Shift = () => {
     dayIndex.setDate(dayIndex.getDate() + 1)
   }
 
-  const foodEvents = ["Breakfast", "Lunch", "Snack", "Dinner"]
-  console.log(assignemnts)
-
   useEffect(() => {
     fetchAssignments(setAssignments)
   }, [])
@@ -51,24 +48,7 @@ export const Shift = () => {
         textAlign: "center",
       }}
     >
-      {shiftDates.map((date) => (
-        <div style={{ border: "1px solid black" }} key={date.toDateString()}>
-          <div>{date.toDateString()}</div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-            }}
-          >
-            {foodEvents.map((event) => (
-              <div key={event}>
-                <FoodEvent name={event} />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+      <ShiftDates shiftDates={shiftDates} assignments={assignemnts} />
     </div>
   )
 }

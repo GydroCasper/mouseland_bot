@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app"
 import { getDatabase, set, ref, onValue } from "firebase/database"
 import { User } from "../types/user"
+import { Assignments } from "../types/assignment"
 
 const connect = () => {
   const firebaseConfig = {
@@ -19,13 +20,17 @@ const connect = () => {
   return database
 }
 
-export const assignUser = async (user: User) => {
+export const assignUser = async (
+  day: string,
+  foodEvent: string,
+  user: User
+) => {
   const database = connect()
 
-  await set(ref(database, "schedule/" + user.id), user)
+  await set(ref(database, `schedule/${day}/${foodEvent}/${user.id}`), user)
 }
 
-export const fetchAssignments = (callback: (users: any) => void) => {
+export const fetchAssignments = (callback: (assignments: Assignments) => void) => {
   const database = connect()
   const reference = ref(database, "schedule/")
 
