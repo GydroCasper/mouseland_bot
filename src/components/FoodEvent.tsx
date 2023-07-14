@@ -20,7 +20,9 @@ export const FoodEvent: React.FC<FoodEventProps> = ({ day, name, users }) => {
       {users
         ? Object.values(users).map((user: User) => (
             <div key={user.id}>
-              {`${user.first_name} (${user.username}) ${user.last_name}`}
+              {`${!!user.first_name ? user.first_name : ""} ${
+                user.username ? "(" + user.username + ")" : ""
+              } ${!!user.last_name ? user.last_name : ""}`}
             </div>
           ))
         : null}
